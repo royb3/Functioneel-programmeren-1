@@ -18,5 +18,8 @@ nulpuntenb a b c
   | otherwise = [((-b) + sqrt(d)) / (2*a), ((-b) - sqrt(d)) / (2*a)]
   where d = b^2 - 4 * a * c
 --2c
--- worpen5::[*]
--- worpen5 =  [(a, b, c) | a <- [1..6], b <- [1..6], c <- [1..6]]
+worpen5::Int
+worpen5 = length [(a, b, c) | a <- [1..6], b <- [1..6], c <- [1..6], (a + b + c) `mod` 5 == 0 ]
+--2d
+worpenN::Int->Int
+worpenN n = length [(a, b, c) | a <- [1..6], b <- [1..6], c <- [1..6], (a + b + c) `mod` n == 0 ]
